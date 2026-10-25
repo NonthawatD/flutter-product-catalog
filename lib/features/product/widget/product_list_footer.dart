@@ -12,14 +12,12 @@ class ProductListFooter extends StatelessWidget {
     final Widget content;
 
     if (controller.isLoadingMore) {
-      // 2) กำลังโหลดหน้าถัดไป
       content = const SizedBox(
         width: 24,
         height: 24,
         child: CircularProgressIndicator(strokeWidth: 2.5),
       );
     } else if (controller.loadMoreErrorMessage != null) {
-      // 3) โหลดหน้าถัดไปไม่สำเร็จ
       content = Column(
         mainAxisSize: MainAxisSize.min,
         spacing: 4,
@@ -40,7 +38,6 @@ class ProductListFooter extends StatelessWidget {
         ],
       );
     } else if (controller.hasMore) {
-      // 1) มีหน้าถัดไป
       content = OutlinedButton(
         onPressed: controller.fetchMore,
         style: OutlinedButton.styleFrom(
@@ -51,13 +48,11 @@ class ProductListFooter extends StatelessWidget {
         child: Text('โหลดเพิ่มเติม', style: context.textTheme.labelLarge),
       );
     } else {
-      // 4) โหลดครบทุกรายการแล้ว
       content = Text(
         'แสดงครบทุกรายการแล้ว',
         style: context.textTheme.bodySmall,
       );
     }
-
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 45),
       child: Center(child: content),

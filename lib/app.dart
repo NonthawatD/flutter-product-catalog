@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CatalogX',
+      debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
       home: const ProductListScreen(),
     );

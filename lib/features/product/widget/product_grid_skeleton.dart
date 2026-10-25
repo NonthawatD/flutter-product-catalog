@@ -30,7 +30,7 @@ class ProductGridSkeleton extends HookWidget {
             const SkeletonBox(
               width: 120,
               height: 12,
-            ), // แทนข้อความ "แสดง X จาก Y รายการ"
+            ), 
             Expanded(
               child: GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),

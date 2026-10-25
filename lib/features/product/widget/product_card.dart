@@ -27,14 +27,12 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,
             children: [
-              // ตัวเดียวที่ยืดได้: รูปกินพื้นที่ที่เหลือทั้งหมด
               Expanded(
                 child: SizedBox(
                   width: double.infinity,
                   child: ProductImage(imageUrl: product.thumbnail),
                 ),
               ),
-              // สูงคงที่ 40 ห้ามใส่ Expanded
               SizedBox(
                 height: 40,
                 child: Text(

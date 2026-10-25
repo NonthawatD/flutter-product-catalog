@@ -27,13 +27,13 @@ class ProductListController extends SafeChangeNotifier {
     errorMessage = null;
     notifyListeners();
     try {
-      await Future.delayed(const Duration(seconds: 3));
+      // await Future.delayed(const Duration(seconds: 3));
       final res = await productRepository.fetchProductsGetAll(
         limit: pageSize,
         skip: 0,
       );
       products = res.products;
-
+      // products = [];
       total = res.total;
     } on NetworkException catch (e) {
       errorMessage = e.message;
@@ -54,7 +54,7 @@ class ProductListController extends SafeChangeNotifier {
         limit: pageSize,
         skip: products.length,
       );
-      products = [...products, ...res.products]; // สร้าง list ใหม่ ไม่ mutate
+      products = [...products, ...res.products];
       total = res.total;
     } on NetworkException catch (e) {
       loadMoreErrorMessage = e.message;
